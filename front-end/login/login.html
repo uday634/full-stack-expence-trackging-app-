@@ -7,37 +7,30 @@
     <meta name="description" content="Enter your description here">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css"> <!-- Make sure this path is correct -->
-    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="../style.css"> <!-- Make sure this path is correct -->
     <title>Title</title>
 </head>
 <body>
-    <div class="container signin-container" id="">
+    <div class="container login-container">
         <form>
-            <h3>Sign In</h3>
-            <!-- Name input -->
-            <div class="form-group">
-                <label for="signname">Name</label>
-                <input type="text" id="signname" class="form-control">
-            </div>
-
+            <h3>Log in</h3>
             <!-- Email input -->
             <div class="form-group">
-                <label for="signemail">Email</label>
-                <input type="email" id="signemail" class="form-control">
+                <label for="logemail">Email</label>
+                <input type="email" id="logemail" class="form-control">
             </div>
 
             <!-- Password input -->
             <div class="form-group">
-                <label for="signpassword">Password</label>
-                <input type="password" id="signpassword" class="form-control">
+                <label for="logpassword">Password</label>
+                <input type="password" id="logpassword" class="form-control">
             </div>
-            <div id="errormsg"></div>
-
+            
             <!-- Submit button -->
-            <button type="button" id="signin" class="btn btn-primary btn-block "><a href="login.html">Sign In</a></button>
-            <br>
-            <p >If you already registered?  <a href="login.html">click here</a></p>
+            <button type="button" id="login" class="btn btn-primary btn-block">LogIn</button>
+            <div id="errormsg"></div>
+            
+            <p>If you not registered?  <a href="../signin/signin.html">click here</a></p>
         </form>
     </div>
 
@@ -46,6 +39,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script src="signin.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>

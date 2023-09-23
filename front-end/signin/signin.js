@@ -18,7 +18,7 @@ signBtn.addEventListener('click', async () => {
     try {
         await axios.post('http://localhost:3000/user/sign-in', obj);
         console.log('Send successfully');
-        window.location.href = 'login.html';
+        window.location.href = '../login/login.html';
     } catch (err) {
         errmsg.textContent = 'Email already exists'; // Update error message
         setTimeout(() => {
