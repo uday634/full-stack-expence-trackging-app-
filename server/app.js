@@ -31,6 +31,10 @@ app.post('/sign-in', (req, res, next)=>{
             res.status(500).json({ message: 'Error creating user' });
         })
 })
+app.post('/log-in', (req, res, next)=>{
+    console.log(req.body)
+    
+})
 
 
 
@@ -43,5 +47,12 @@ sequelize.sync()
         })
     })
     .catch(err=>{
-        console.log(error)
+        console.log(err)
     })
+
+
+
+
+
+
+      

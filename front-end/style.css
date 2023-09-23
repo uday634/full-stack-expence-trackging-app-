@@ -12,9 +12,25 @@ body {
   color:#007bff ;
 }
 
-.container {
+
+.signin-container {
   width: 400px;
-  height: 400px;
+  height: 450px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgb(53, 195, 234);
+  box-shadow: 0 0 15px 8px rgb(53, 195, 234);
+  background: none;
+  border-radius: 9px;
+}
+
+h3{
+  text-decoration: underline;
+}
+
+.login-container{
+  width: 400px;
+  height: 350px;
   text-align: center;
   padding: 20px;
   border: 1px solid rgb(53, 195, 234);
@@ -31,3 +47,10 @@ body {
   justify-content: center;
   height: 100%;
 }
+
+#signin a{
+  color: white;
+  text-decoration: none;
+}
+
+
