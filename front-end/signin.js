@@ -16,8 +16,9 @@ signBtn.addEventListener('click', async () => {
         password: password
     };
     try {
-        await axios.post('http://localhost:3000/sign-in', obj);
+        await axios.post('http://localhost:3000/user/sign-in', obj);
         console.log('Send successfully');
+        window.location.href = 'login.html';
     } catch (err) {
         errmsg.textContent = 'Email already exists'; // Update error message
         setTimeout(() => {
