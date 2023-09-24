@@ -1,4 +1,5 @@
 // Wait for the DOM to load
+const token = localStorage.getItem('token')
 document.addEventListener('DOMContentLoaded', function() {
     const amount = document.getElementById('user-amount');
     const description = document.getElementById('user-description');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const userdes = description.value;
         const userdesType = desType.value;
         let li = document.createElement('li')
+        let delbtn = document.getElementById('delete')
 
         li.innerHTML =`Rs.${useramount} - ${userdes} - ${userdesType}  <button class="edit" id="edit">Edit</button><button class="delete" id="delete">delete</button>`
         data.appendChild(li)
@@ -21,8 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
             desType: userdesType
         };
 
+        const deleteButton = li.querySelector('.delete');
+        removeing(deleteButton, li);
+        
         try {
-            const result = await axios.post('http://localhost:3000/expence/addExpence', obj);
+            const result = await axios.post('http://localhost:3000/expence/addExpence',obj,{headers: {"Authorization":token}});
             console.log(result);
         } catch (err) {
             console.log(err);
@@ -35,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to retrieve and display expenses
     async function getExpenses() {
         try {
-            const response = await axios.get('http://localhost:3000/expence/getExpence');
+            const response = await axios.get('http://localhost:3000/expence/getExpence',{headers: {"Authorization":token}});
             const expenses = response.data;
 
             expenses.forEach(expense => {
@@ -56,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 li.appendChild(deleteButton);
 
                 data.appendChild(li);
+                removeing(deleteButton, li, expense.id);
             });
         } catch (err) {
             console.log(err);
@@ -64,4 +70,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Call the function to retrieve and display expenses
     getExpenses();
+
+
+    //delete thing the given expences 
+    function removeing(deleteButton, li, id) {
+        deleteButton.addEventListener('click', async (e) => {
+            try {
+                await axios.delete(`http://localhost:3000/expence/deleteExpence/${id}`);
+                li.remove();
+            } catch (err) {
+                console.log(err);
+            }
+        });
+    }
+
 });

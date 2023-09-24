@@ -1,17 +1,66 @@
-/* Apply some basic styles to the container */
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
 .container {
-  max-width: 600px;
-  margin: 0 auto;
+  display: flex;
+  height: 100%;
+}
+
+.left-section {
+  flex: 1;
   padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 15px 8px rgb(53, 195, 234);
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.right-section {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds the box height */
+  max-height: 100%; /* Limit the maximum height to 100% of the viewport height */
+}
+
+/* Custom CSS */
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.left-section {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.right-section {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds the box height */
+  max-height: 100%; /* Limit the maximum height to 100% of the viewport height */
 }
 
 /* Style the input fields and labels */
 label {
   font-weight: bold;
+}
+
+h2{
+  text-align: center;
+  text-decoration: underline;
 }
 
 input[type="number"],
@@ -49,6 +98,7 @@ select {
 }
 
 /* Style the data list */
+/* Style the data list */
 .data li {
   list-style: none;
   margin: 5px 0;
@@ -58,13 +108,8 @@ select {
   border-radius: 3px;
   font-size: 16px;
   display: flex;
-  justify-content: space-between; /* Align edit and delete buttons to the right */
+  justify-content: space-between; /* Align content and buttons to the right */
   align-items: center; /* Vertically align text and buttons */
-}
-
-/* Add some hover effect to the data list items */
-.data li:hover {
-  background-color: #f0f0f0;
 }
 
 /* Style the edit and delete buttons */
@@ -75,12 +120,43 @@ select {
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
-  margin-left: 5px;
   cursor: pointer;
   font-size: 14px;
 }
 
+/* Add some margin to the delete button */
+.delete {
+  margin-left: 5px;
+}
+
+/* Hover effect for buttons */
 .edit:hover,
 .delete:hover {
   background-color: #0056b3;
+}
+
+/* Style the edit and delete buttons */
+.edit,
+.delete {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Adjust margin and padding for edit and delete buttons */
+.edit {
+  margin-right: 5px;
+}
+
+.delete {
+  margin-left: 5px;
+}
+
+/* Add some hover effect to the data list items */
+.data li:hover {
+  background-color: #f0f0f0;
 }

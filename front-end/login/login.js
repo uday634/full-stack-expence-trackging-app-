@@ -3,8 +3,6 @@ const logPassword = document.getElementById('logpassword'); // Fixed typo
 const logBtn = document.getElementById('login');
 const errmsg = document.getElementById('errormsg');
 
-
-
 // Logic for the log in
 logBtn.addEventListener('click', async () => {
     let email = logEmail.value;
@@ -14,15 +12,28 @@ logBtn.addEventListener('click', async () => {
         password: password
     };
     try {
-        await axios.post('http://localhost:3000/user/log-in', obj);
-        console.log('Send successfully');
-        alert('logged in ')
-        errmsg.textContent = "loged in";
+        const response = await axios.post('http://localhost:3000/user/log-in', obj);
+        const data = response.data;
+        console.log(data);
+        
+        // Check if login was successful based on response status or message
+        if (response.status === 200 && data.message === 'User login successful') {
+            localStorage.setItem('token', data.token);
+            console.log('Login successful');
+            errmsg.textContent = "Logged in";
+            window.location.href = '../userinterface/userinterface.html';
+        } else {
+            // Handle unsuccessful login
+            console.log('Login failed');
+            errmsg.textContent = "Can't find the user or incorrect password";
+        }
+
         setTimeout(() => {
             errmsg.textContent = ''; 
         }, 3000);
     } catch (err) {
-        errmsg.textContent = "Can't find the user";
+        console.error(err);
+        errmsg.textContent = "Can't connect to the server";
         setTimeout(() => {
             errmsg.textContent = ''; 
         }, 3000);
