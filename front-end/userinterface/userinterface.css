@@ -44,6 +44,38 @@ html {
   border: 1px solid #ccc;
 }
 
+/* Add this CSS to your userInterface.css file or in a <style> tag in your HTML file */
+
+/* Style for the nav tag (navbar) */
+nav {
+  background-color: #007bff; /* Set the background color */
+  height: 60px;
+  color: #fff; /* Set the text color */
+  padding: 10px 0; /* Add padding for spacing */
+  text-align: center; /* Center-align the content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for a raised effect */
+  
+}
+
+/* Style for the button inside the nav (navbar button) */
+nav button {
+  background-color: transparent; /* Set the button background color to transparent */
+  color: #fff; /* Set the button text color */
+  border: 1px solid #fff; /* Add a border around the button */
+  padding: 10px 20px; /* Add padding to the button */
+  margin: 0 10px; /* Add margin to separate buttons */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  border-radius: 5px;
+  display: flex;
+  
+}
+
+/* Style the button on hover */
+nav button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+
 .right-section {
   flex: 1;
   padding: 20px;
