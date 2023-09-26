@@ -192,3 +192,31 @@ select {
 .data li:hover {
   background-color: #f0f0f0;
 }
+
+/* Add this CSS to your userInterface.css file or in a <style> tag in your HTML file */
+
+.leaderbord {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds the box height */
+  max-height: 100%; /* Limit the maximum height to 100% of the viewport height */
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+}
+
+/* Style the data list */
+/* Style the data list */
+.leaderbord li {
+  list-style: none;
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between; /* Align content and buttons to the right */
+  align-items: center; /* Vertically align text and buttons */
+}

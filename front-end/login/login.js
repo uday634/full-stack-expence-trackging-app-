@@ -2,6 +2,9 @@ const logEmail = document.getElementById('logemail');
 const logPassword = document.getElementById('logpassword'); // Fixed typo
 const logBtn = document.getElementById('login');
 const errmsg = document.getElementById('errormsg');
+// Clear isPrimeum when a user logs in
+
+
 
 // Logic for the log in
 logBtn.addEventListener('click', async () => {
@@ -18,6 +21,7 @@ logBtn.addEventListener('click', async () => {
         
         // Check if login was successful based on response status or message
         if (response.status === 200 && data.message === 'User login successful') {
+            localStorage.removeItem('isPrimeum');
             localStorage.setItem('token', data.token);
             console.log('Login successful');
             errmsg.textContent = "Logged in";
