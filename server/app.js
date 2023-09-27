@@ -8,6 +8,7 @@ const User = require('./models/User');
 const routUser = require('./routes/users');
 const routExpence = require('./routes/expence');
 const routpreiumuser = require('./routes/premiumuser')
+const routerforgot = require('./routes/password')
 
 
 const port = 3000;
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 app.use('/user', routUser);
 app.use('/expence', routExpence);
 app.use('/premium',routpreiumuser);
+app.use('/password', routerforgot)
 
 
 
