@@ -9,11 +9,11 @@ const userautheincation = require('../middleware/auth')
 const router = express.Router();
 
 
-router.post('/addExpence', userautheincation.authenticate, expenceController.exportsData)
+router.post('/addExpence', userautheincation.authenticate, expenceController.exportData)
 
 router.get('/getExpence',userautheincation.authenticate, expenceController.sendData)
 
-router.delete('/deleteExpence/:id', expenceController.deleteData);
+router.delete('/deleteExpence/:id',userautheincation.authenticate , expenceController.deleteData);
 
 
 module.exports = router
