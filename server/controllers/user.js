@@ -1,5 +1,12 @@
-const signData = require('../models/sqlconfig')
+const signData = require('../models/User')
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
+
+
+function generateAccessToken(id){
+    return jwt.sign({userId: id},'secreateKey')
+}
+
 // sign in logic 
 exports.signin = async (req, res, next) => {
     try {
@@ -32,7 +39,7 @@ exports.login = async (req, res, next) => {
         const user = await signData.findOne({ where: { email: email } });
 
         if (!user) {
-            // User not found, send 404 response
+            // User not found, send a 404 response
             return res.status(404).json({ message: 'User not found' });
         }
 
@@ -41,7 +48,9 @@ exports.login = async (req, res, next) => {
         const passwordMatch = await bcrypt.compare(password, storedPassword);
 
         if (passwordMatch) {
-            return res.status(200).json({ message: 'User login successful' });
+            // Password matches, send a success response and redirect
+            res.status(200).json({ message: 'User login successful', token: generateAccessToken(user.id)});
+          
         } else {
             // Password doesn't match, send a 401 response (Unauthorized)
             return res.status(401).json({ message: 'Incorrect password' });
@@ -51,3 +60,4 @@ exports.login = async (req, res, next) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
+
