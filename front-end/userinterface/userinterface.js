@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function removeing(deleteButton, li, id) {
         deleteButton.addEventListener('click', async (e) => {
             try {
-                await axios.delete(`http://localhost:3000/expence/deleteExpence/${id}`);
+                await axios.delete(`http://localhost:3000/expence/deleteExpence/${id}`,{headers: {"Authorization":token}});
                 li.remove();
             } catch (err) {
                 console.log(err);

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenditure Dashboard</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for list-group scrolling */
+        .scrollable-list-group {
+            max-height: 70vh; /* Set the maximum height to 70% of viewport height */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Expenditure Dashboard</h1>
+        <div class="row">
+            <!-- Daily Expenditure -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Daily Expenditure</h5>
+                        <ul class="list-group scrollable-list-group">
+                            <li class="list-group-item">1. Amount - $100 - Food - Restaurant</li>
+                            <li class="list-group-item">1. Amount - $100 - Food - Restaurant</li>
+                            <li class="list-group-item">1. Amount - $100 - Food - Restaurant</li>
+                            <li class="list-group-item">1. Amount - $100 - Food - Restaurant</li>
+                            <li class="list-group-item">1. Amount - $100 - Food - Restaurant</li>
+                            <li class="list-group-item">1. Amount - $100 - Food - Restaurant</li>
+                            <!-- Other daily expenditure items here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Expenditure -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Monthly Expenditure</h5>
+                        <ul class="list-group scrollable-list-group">
+                            <li class="list-group-item">1. Amount - $1000 - Rent</li>
+                            <!-- Other monthly expenditure items here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yearly Expenditure -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Yearly Expenditure</h5>
+                        <ul class="list-group scrollable-list-group">
+                            <li class="list-group-item">1. Amount - $12000 - Vacation</li>
+                            <!-- Other yearly expenditure items here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Total Expenditure Cards -->
+        <div class="row mt-4">
+            <!-- Total Daily Expenditure -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Daily Expenditure</h5>
+                        <p class="card-text">$XXXX</p> <!-- Display the actual total amount here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Monthly Expenditure -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Monthly Expenditure</h5>
+                        <p class="card-text">$XXXX</p> <!-- Display the actual total amount here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Yearly Expenditure -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Yearly Expenditure</h5>
+                        <p class="card-text">$XXXX</p> <!-- Display the actual total amount here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

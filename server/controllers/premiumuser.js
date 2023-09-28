@@ -9,8 +9,8 @@ const sequelize = require('../util/sqlconfig') // Import Sequelize
 exports.premimumpending = async (req, res, next) => {
     try {
         const rzp = new Razorpay({
-            key_id: "rzp_test_RqillKHhKjBPls",
-            key_secret: "6naywr2FLeCMNkuVAxKMSV5H"
+            key_id: "rzp_test_wOKsg0ixchvODW",
+            key_secret: "rwpzBHo6MOUlqauo83C9YIVQ"
         });
 
         const user = req.user;

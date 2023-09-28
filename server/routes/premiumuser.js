@@ -15,5 +15,12 @@ router.post('/updatetransactionstatus', Authorization.authenticate, premiumContr
 
 router.get('/leaderboard', Authorization.authenticate,leaderbordController.getUserLeaderBoard);
 
+router.get('/daily', Authorization.authenticate,leaderbordController.daily);
+
+router.get('/mountly', Authorization.authenticate,leaderbordController.montly);
+
+router.get('/yearly', Authorization.authenticate,leaderbordController.yearly);
+
+
 
 module.exports = router

@@ -48,24 +48,10 @@ primumbtn.addEventListener("click", async (e) => {
 });
 
 // Create the Leaderboard button element
-
-function showPremiumUI() {
-  const leaderbordbtn = document.createElement("button");
-  leaderbordbtn.innerHTML = "Leaderboard";
-  leaderbordbtn.setAttribute("id", "leaderbordbtn");
-
-  const paragraph = document.createElement("h2");
-  paragraph.innerHTML = "You are the premium user";
-
-  // Remove the Premium button and add the Leaderboard button
-  navbar.removeChild(primumbtn);
-  navbar.appendChild(paragraph);
-  navbar.appendChild(leaderbordbtn);
-
-
-  leaderbordbtn.addEventListener("click", async () => {
+function leaderbordreport(duration,btn){
+  btn.addEventListener("click", async () => {
     try {
-      let result = await axios.get("http://localhost:3000/premium/leaderboard", {
+      let result = await axios.get(`http://localhost:3000/premium/${duration}`, {
         headers: { Authorization: token },
       });
       console.log(result.data)
@@ -76,14 +62,83 @@ function showPremiumUI() {
           let li = document.createElement('li');
           li.innerHTML = `${count}: ${res.name} - ${res.total_cost}`
           count++
-        leaderboardData.appendChild(li)
+          leaderboardData.appendChild(li)
       })
 
     } catch (err) {
       console.log(err);
     }
   });
-  
+} 
+
+function reportButton(duration,btn){
+  btn.addEventListener("click", async () => {
+    try {
+      let result = await axios.get(`http://localhost:3000/premium/${duration}`, {
+        headers: { Authorization: token },
+      });
+      console.log(result.data)
+      let res = result.data;
+      let leaderboardData = document.getElementById('leaderbord-data');
+      
+      while (leaderboardData.firstChild) {
+        leaderboardData.removeChild(leaderboardData.firstChild);
+      }
+
+
+      let count=1
+      res.forEach((res)=>{
+          let li = document.createElement('li');
+          li.innerHTML = `${count}: ${res.amount} - ${res.description}- ${res.desType}-${res.updateAt}`
+          count++
+          leaderboardData.appendChild(li)
+      })
+
+    } catch (err) {
+      console.log(err);
+    }
+  });
+} 
+
+
+function showPremiumUI() {
+  const leaderbordbtn = document.createElement("button");
+  const dayly = document.createElement("button");
+  const monthly = document.createElement("button");
+  const yearly = document.createElement("button");
+  leaderbordbtn.innerHTML = "Leaderboard";
+  leaderbordbtn.setAttribute("id", "leaderbordbtn");
+  dayly.setAttribute("id", "dayly");
+  monthly.setAttribute("id", "monthly");
+  yearly.setAttribute("id", "yearly");
+
+
+  dayly.innerHTML = 'daily'
+  monthly.innerHTML = 'monthly'
+  yearly.innerHTML = 'yearly'
+
+  const paragraph = document.createElement("h2");
+  paragraph.innerHTML = "You are the premium user";
+
+  // Remove the Premium button and add the Leaderboard button
+  navbar.removeChild(primumbtn);
+  navbar.appendChild(paragraph);
+  navbar.appendChild(leaderbordbtn);
+  navbar.appendChild(dayly);
+  navbar.appendChild(monthly);
+  navbar.appendChild(yearly);
+
+
+  let leaderboard = 'leaderboard'
+  let daily = 'daily'
+  let mounth = 'mountly'
+  let year = 'yearly'
+
+
+  leaderbordreport(leaderboard, leaderbordbtn)  
+  reportButton(daily,dayly)  
+  reportButton(mounth,monthly)  
+  reportButton(year,yearly)  
 }
 
 if (isPrimeum === "true") {
