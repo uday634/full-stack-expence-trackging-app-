@@ -13,7 +13,10 @@ router.post('/addExpence', userautheincation.authenticate, expenceController.exp
 
 router.get('/getExpence',userautheincation.authenticate, expenceController.sendData)
 
+router.get('/download', userautheincation.authenticate, expenceController.downloadExpence)
+
 router.delete('/deleteExpence/:id',userautheincation.authenticate , expenceController.deleteData);
 
+router.get('/allExpences',userautheincation.authenticate, expenceController.getfilehistory )
 
 module.exports = router

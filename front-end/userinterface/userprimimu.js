@@ -101,21 +101,29 @@ function reportButton(duration,btn){
 } 
 
 
+
+
 function showPremiumUI() {
   const leaderbordbtn = document.createElement("button");
   const dayly = document.createElement("button");
   const monthly = document.createElement("button");
   const yearly = document.createElement("button");
+  const report = document.createElement("button");
+  const downloadhistory = document.createElement('button')
   leaderbordbtn.innerHTML = "Leaderboard";
   leaderbordbtn.setAttribute("id", "leaderbordbtn");
   dayly.setAttribute("id", "dayly");
   monthly.setAttribute("id", "monthly");
   yearly.setAttribute("id", "yearly");
+  report.setAttribute("id", "report");
+  downloadhistory.setAttribute("id", "downloadhistory");
 
 
   dayly.innerHTML = 'daily'
   monthly.innerHTML = 'monthly'
   yearly.innerHTML = 'yearly'
+  report.innerHTML = 'Download Report'
+  downloadhistory.innerHTML = 'File History'
 
   const paragraph = document.createElement("h2");
   paragraph.innerHTML = "You are the premium user";
@@ -127,6 +135,8 @@ function showPremiumUI() {
   navbar.appendChild(dayly);
   navbar.appendChild(monthly);
   navbar.appendChild(yearly);
+  navbar.appendChild(report);
+  navbar.appendChild(downloadhistory);
 
 
   let leaderboard = 'leaderboard'
@@ -139,6 +149,28 @@ function showPremiumUI() {
   reportButton(daily,dayly)  
   reportButton(mounth,monthly)  
   reportButton(year,yearly)  
+  report.addEventListener('click',async () => {
+    try{
+      let reportdownload = await axios.get(`http://localhost:3000/expence/download`, {
+        headers: { Authorization: token },
+      })
+      
+      let link = reportdownload.data.fileURL;
+      console.log(reportdownload.data.fileURL)
+      
+      window.location.href = link
+    }catch(err){
+      console.log(err)
+    }
+  }) 
+
+  downloadhistory.addEventListener('click', async () =>{
+    try{
+      window.location.href = '../report/report.html'
+    }catch(err){
+      console.log(err)
+    }
+  })
 }
 
 if (isPrimeum === "true") {
