@@ -1,6 +1,8 @@
 const navbar = document.getElementById("navbar");
 const isPrimeum = localStorage.getItem("isPrimeum");
 const primumbtn = document.getElementById("primumbtn");
+const itemsPerPage = 5; // Number of items to display per page
+let currentPage = 1; // Current page
 
 primumbtn.addEventListener("click", async (e) => {
   const token = localStorage.getItem("token");
