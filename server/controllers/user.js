@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 
 function generateAccessToken(id){
-    return jwt.sign({userId: id},'secreateKey')
+    return jwt.sign({userId: id}, process.env.TOKEN_SECRET)
 }
 
 // sign in logic 
